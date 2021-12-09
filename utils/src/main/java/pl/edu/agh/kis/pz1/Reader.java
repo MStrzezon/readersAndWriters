@@ -8,13 +8,11 @@ import org.apache.logging.log4j.LogManager;
 public class Reader extends Thread{
     private ReadingRoom readingRoom;
     private String name;
-    PipedInputStream in;
     private static Logger logger = LogManager.getLogger(Reader.class);
 
-    public Reader(ReadingRoom r, PipedInputStream i, String n) {
+    public Reader(ReadingRoom r, String n) {
         this.readingRoom = r;
         this.name = n;
-        this.in = i;
     }
 
     @Override

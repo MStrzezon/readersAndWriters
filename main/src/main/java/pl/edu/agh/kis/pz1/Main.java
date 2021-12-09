@@ -10,24 +10,20 @@ import java.io.PipedOutputStream;
  */
 public class Main
 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         ReadingRoom readingRoom = new ReadingRoom();
-        try (
-        PipedOutputStream out = new PipedOutputStream();
-        PipedInputStream in = new PipedInputStream(out);) {
-            new Writer(readingRoom, out, "Jan Kochanowski").start();
-            new Writer(readingRoom, out, "Adam Mickiewicz").start();
-            new Writer(readingRoom, out, "Juliusz Slowacki").start();
-            new Reader(readingRoom, in, "Adam").start();
-            new Reader(readingRoom, in, "Krzysiek").start();
-            new Reader(readingRoom, in, "Michal").start();
-            new Reader(readingRoom, in, "Wojtek").start();
-            new Reader(readingRoom, in, "Julek").start();
-            new Reader(readingRoom, in, "Marcin").start();
-            new Reader(readingRoom, in, "Zygfryt").start();
-            new Reader(readingRoom, in, "Kacper").start();
-            new Reader(readingRoom, in, "Karolina").start();
-            new Reader(readingRoom, in, "Martyna").start();
-        }
+        new Writer(readingRoom, "Jan Kochanowski").start();
+        new Writer(readingRoom, "Adam Mickiewicz").start();
+        new Writer(readingRoom, "Juliusz Slowacki").start();
+        new Reader(readingRoom, "Adam").start();
+        new Reader(readingRoom, "Krzysiek").start();
+        new Reader(readingRoom, "Michal").start();
+        new Reader(readingRoom, "Wojtek").start();
+        new Reader(readingRoom, "Julek").start();
+        new Reader(readingRoom, "Marcin").start();
+        new Reader(readingRoom, "Zygfryt").start();
+        new Reader(readingRoom, "Kacper").start();
+        new Reader(readingRoom, "Karolina").start();
+        new Reader(readingRoom, "Martyna").start();
     }
 }

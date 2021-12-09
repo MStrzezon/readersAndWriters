@@ -8,6 +8,22 @@ public class ReadingRoom {
     private int writers = 0;
     private static Logger logger = LogManager.getLogger(ReadingRoom.class);
 
+    public void setReaders(int readers) {
+        this.readers = readers;
+    }
+
+    public void setWriters(int writers) {
+        this.writers = writers;
+    }
+
+    public int getReaders() {
+        return readers;
+    }
+
+    public int getWriters() {
+        return writers;
+    }
+
     public synchronized void startWriting(){
         while (writers != 0 || readers != 0) {
             try {
