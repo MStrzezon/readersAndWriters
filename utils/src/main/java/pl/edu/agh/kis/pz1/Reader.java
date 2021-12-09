@@ -22,14 +22,17 @@ public class Reader extends Thread{
         while (true) {
             try {
                 readingRoom.startReading();
-                logger.info(name + " starts reading.");
-                sleep((int)(3000));
-                logger.info(name + " are reading.");
-                sleep((int)(3000));
-                logger.info(name + " is ending reading");
+                logger.info("{} starts reading.", name);
+                sleep((3000));
+                logger.info("{} are reading.", name);
+                sleep((3000));
+                logger.info("{} is ending reading", name);
                 readingRoom.endReading();
-                sleep((int)(3000));
-            } catch (InterruptedException ignored) {}
+                sleep((3000));
+            } catch (InterruptedException e) {
+                logger.error(e.getMessage());
+                Thread.currentThread().interrupt();
+            }
         }
     }
 }

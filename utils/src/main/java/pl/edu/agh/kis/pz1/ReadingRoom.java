@@ -1,15 +1,21 @@
 package pl.edu.agh.kis.pz1;
 
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+
 public class ReadingRoom {
     private int readers = 0;
     private int writers = 0;
-    private String text;
+    private static Logger logger = LogManager.getLogger(ReadingRoom.class);
 
-    public synchronized void startWriting() {
+    public synchronized void startWriting(){
         while (writers != 0 || readers != 0) {
             try {
                 wait();
-            } catch (InterruptedException ignored) { }
+            } catch (InterruptedException e) {
+                logger.error(e.getMessage());
+                Thread.currentThread().interrupt();
+            }
         }
         writers++;
     }
@@ -23,7 +29,10 @@ public class ReadingRoom {
         while (writers != 0 || readers >= 5) {
             try {
                 wait();
-            } catch (InterruptedException ignored) { }
+            } catch (InterruptedException e) {
+                logger.error(e.getMessage());
+                Thread.currentThread().interrupt();
+            }
         }
         readers++;
     }

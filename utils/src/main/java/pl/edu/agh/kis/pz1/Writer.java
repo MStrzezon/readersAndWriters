@@ -9,7 +9,7 @@ public class Writer extends Thread{
     private ReadingRoom readingRoom;
     String name;
     PipedOutputStream out;
-    private static Logger logger = LogManager.getLogger(Reader.class);
+    private static Logger logger = LogManager.getLogger(Writer.class);
 
     public Writer(ReadingRoom r, PipedOutputStream o, String n) {
         this.readingRoom =r;
@@ -17,18 +17,22 @@ public class Writer extends Thread{
         this.out = o;
     }
 
+    @Override
     public void run() {
         while (true) {
             try {
                 readingRoom.startWriting();
-                logger.info(name + " is starting writing.");
+                logger.info( "{} is starting writing.", name);
                 sleep((3000));
-                logger.info(name + " writes.");
+                logger.info("{} writes.", name);
                 sleep((3000));
                 readingRoom.endWriting();
-                logger.info(name + " is ending writing.");
+                logger.info("{} is ending writing.", name);
                 sleep(3000);
-            } catch (InterruptedException ignored) {}
+            } catch (InterruptedException e) {
+                logger.error(e.getMessage());
+                Thread.currentThread().interrupt();
+            }
         }
     }
 }
