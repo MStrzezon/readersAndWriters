@@ -15,6 +15,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.target>1.8</maven.compiler.target>
     <maven.compiler.source>1.8</maven.compiler.source>
+    <!-- JaCoCo Properties -->
+    <jacoco.version>0.8.6</jacoco.version>
+    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+    <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+    <sonar.language>java</sonar.language>
   </properties>
 
   <modules>
@@ -25,7 +31,6 @@
 
   <dependencyManagement>
     <dependencies>
-
       <dependency>
         <groupId>pl.edu.agh.kis.pz1</groupId>
         <artifactId>main</artifactId>
@@ -36,9 +41,26 @@
         <artifactId>utils</artifactId>
         <version>${project.version}</version>
       </dependency>
-
+      <dependency>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.7</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <profiles>
+    <profile>
+      <id>sonar</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <sonar.organization>mstrzezon</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+      </properties>
+    </profile>
+  </profiles>
 
   <build>
     <pluginManagement>
