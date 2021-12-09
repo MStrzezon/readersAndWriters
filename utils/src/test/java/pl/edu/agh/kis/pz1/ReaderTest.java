@@ -26,5 +26,6 @@ public class ReaderTest {
     @Test
     public void run() {
         assertTrue(reader.isAlive());
+
     }
 }

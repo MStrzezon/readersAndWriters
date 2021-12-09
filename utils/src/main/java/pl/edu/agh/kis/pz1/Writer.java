@@ -19,13 +19,13 @@ public class Writer extends Thread{
     public void run() {
         while (true) {
             try {
+                logger.info( "Writer {} wants enter.", name);
                 readingRoom.startWriting();
-                logger.info( "{} is starting writing.", name);
                 sleep((3000));
                 logger.info("{} writes.", name);
                 sleep((3000));
-                readingRoom.endWriting();
                 logger.info("{} is ending writing.", name);
+                readingRoom.endWriting();
                 sleep(3000);
             } catch (InterruptedException e) {
                 logger.error(e.getMessage());

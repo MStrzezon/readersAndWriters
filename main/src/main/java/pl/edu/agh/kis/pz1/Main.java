@@ -13,11 +13,11 @@ public class Main
     public static void main(String[] args) {
         ReadingRoom readingRoom = new ReadingRoom();
         new Writer(readingRoom, "Jan Kochanowski").start();
-        new Writer(readingRoom, "Adam Mickiewicz").start();
-        new Writer(readingRoom, "Juliusz Slowacki").start();
         new Reader(readingRoom, "Adam").start();
         new Reader(readingRoom, "Krzysiek").start();
         new Reader(readingRoom, "Michal").start();
+        new Writer(readingRoom, "Adam Mickiewicz").start();
+        new Writer(readingRoom, "Juliusz Slowacki").start();
         new Reader(readingRoom, "Wojtek").start();
         new Reader(readingRoom, "Julek").start();
         new Reader(readingRoom, "Marcin").start();

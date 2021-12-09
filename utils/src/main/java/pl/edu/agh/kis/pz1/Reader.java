@@ -19,14 +19,14 @@ public class Reader extends Thread{
     public void run() {
         while (true) {
             try {
+                logger.info("Reader {} wants enter.", name);
                 readingRoom.startReading();
-                logger.info("{} starts reading.", name);
-                sleep((3000));
+                sleep((5000));
                 logger.info("{} are reading.", name);
-                sleep((3000));
+                sleep((5000));
                 logger.info("{} is ending reading", name);
                 readingRoom.endReading();
-                sleep((3000));
+                sleep((5000));
             } catch (InterruptedException e) {
                 logger.error(e.getMessage());
                 Thread.currentThread().interrupt();
