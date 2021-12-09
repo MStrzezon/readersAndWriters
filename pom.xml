@@ -33,12 +33,12 @@
       <dependency>
         <groupId>pl.edu.agh.kis.pz1</groupId>
         <artifactId>main</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>pl.edu.agh.kis.pz1</groupId>
         <artifactId>utils</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <version>${project.version}</version>
       </dependency>
       <dependency>
         <groupId>org.jacoco</groupId>
