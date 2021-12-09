@@ -1,12 +1,15 @@
 package pl.edu.agh.kis.pz1;
 
-import java.io.IOException;
 import java.io.PipedInputStream;
+
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class Reader extends Thread{
     private ReadingRoom readingRoom;
     private String name;
     PipedInputStream in;
+    private static Logger logger = LogManager.getLogger(Reader.class);
 
     public Reader(ReadingRoom r, PipedInputStream i, String n) {
         this.readingRoom = r;
@@ -14,15 +17,16 @@ public class Reader extends Thread{
         this.in = i;
     }
 
+    @Override
     public void run() {
         while (true) {
             try {
                 readingRoom.startReading();
-                System.out.println(name + " starts reading.");
+                logger.info(name + " starts reading.");
                 sleep((int)(3000));
-                System.out.println(name + " are reading.");
+                logger.info(name + " are reading.");
                 sleep((int)(3000));
-                System.out.println(name + " is ending reading");
+                logger.info(name + " is ending reading");
                 readingRoom.endReading();
                 sleep((int)(3000));
             } catch (InterruptedException ignored) {}

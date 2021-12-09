@@ -3,7 +3,6 @@ package pl.edu.agh.kis.pz1;
 import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
-import pl.edu.agh.kis.pz1.Writer;
 
 /**
  * Hello world!
@@ -29,5 +28,4 @@ public class Main
         new Reader(readingRoom, in, "Karolina").start();
         new Reader(readingRoom, in, "Martyna").start();
     }
-
 }
