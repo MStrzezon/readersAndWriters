@@ -1,7 +1,5 @@
 package pl.edu.agh.kis.pz1;
 
-import java.io.PipedInputStream;
-
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 

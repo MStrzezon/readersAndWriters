@@ -1,8 +1,5 @@
 package pl.edu.agh.kis.pz1;
 
-import java.io.IOException;
-import java.io.PipedInputStream;
-import java.io.PipedOutputStream;
 
 /**
  * Hello world!
