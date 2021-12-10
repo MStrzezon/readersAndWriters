@@ -10,13 +10,10 @@ import static org.junit.Assert.*;
 
 public class ReaderTest {
     private ReadingRoom readingRoom;
-    private Reader reader;
 
     @Before
     public void setUp() throws Exception {
         readingRoom = new ReadingRoom();
-        reader = new Reader(readingRoom, "Alex");
-        reader.start();
     }
 
     @After
@@ -25,7 +22,23 @@ public class ReaderTest {
 
     @Test
     public void run() {
-        assertTrue(reader.isAlive());
-
+        Reader reader1 = new Reader(readingRoom, "Jan");
+        reader1.start();
+        Reader reader2 = new Reader(readingRoom, "Adam");
+        reader2.start();
+        Reader reader3 = new Reader(readingRoom, "Marek");
+        reader3.start();
+        Reader reader4 = new Reader(readingRoom, "Zbigniew");
+        reader4.start();
+        Reader reader5 = new Reader(readingRoom, "Juliusz");
+        reader5.start();
+        Reader reader6 = new Reader(readingRoom, "Ignacy");
+        reader6.start();
+        assertTrue(reader1.isAlive());
+        assertTrue(reader2.isAlive());
+        assertTrue(reader3.isAlive());
+        assertTrue(reader4.isAlive());
+        assertTrue(reader5.isAlive());
+        assertTrue(reader6.isAlive());
     }
 }

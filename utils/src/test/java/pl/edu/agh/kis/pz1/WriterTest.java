@@ -8,13 +8,10 @@ import static org.junit.Assert.*;
 
 public class WriterTest {
     private ReadingRoom readingRoom;
-    private Writer writer;
 
     @Before
     public void setUp() throws Exception {
         readingRoom = new ReadingRoom();
-        writer = new Writer(readingRoom, "Jan");
-        writer.start();
     }
 
     @After
@@ -23,6 +20,23 @@ public class WriterTest {
 
     @Test
     public void run() {
-        assertTrue(writer.isAlive());
+        Writer writer1 = new Writer(readingRoom, "Jan");
+        writer1.start();
+        Writer writer2 = new Writer(readingRoom, "Adam");
+        writer2.start();
+        Writer writer3 = new Writer(readingRoom, "Marek");
+        writer3.start();
+        Writer writer4 = new Writer(readingRoom, "Zbigniew");
+        writer4.start();
+        Writer writer5 = new Writer(readingRoom, "Juliusz");
+        writer5.start();
+        Writer writer6 = new Writer(readingRoom, "Ignacy");
+        writer6.start();
+        assertTrue(writer1.isAlive());
+        assertTrue(writer2.isAlive());
+        assertTrue(writer3.isAlive());
+        assertTrue(writer4.isAlive());
+        assertTrue(writer5.isAlive());
+        assertTrue(writer6.isAlive());
     }
 }
