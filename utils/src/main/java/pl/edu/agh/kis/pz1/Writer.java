@@ -3,8 +3,6 @@ package pl.edu.agh.kis.pz1;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
-import java.util.Scanner;
-
 public class Writer extends Thread{
     private ReadingRoom readingRoom;
     String name;
