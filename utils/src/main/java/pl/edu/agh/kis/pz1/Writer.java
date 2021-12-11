@@ -3,6 +3,8 @@ package pl.edu.agh.kis.pz1;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+import java.util.Scanner;
+
 public class Writer extends Thread{
     private ReadingRoom readingRoom;
     String name;
@@ -15,16 +17,17 @@ public class Writer extends Thread{
 
     @Override
     public void run() {
+
         while (true) {
             try {
                 logger.info( "Writer {} wants enter.", name);
                 readingRoom.startWriting();
-                sleep((3000));
+                sleep((700));
                 logger.info("{} writes.", name);
-                sleep((3000));
+                sleep((700));
                 logger.info("{} is ending writing.", name);
                 readingRoom.endWriting();
-                sleep(3000);
+                sleep(700);
             } catch (InterruptedException e) {
                 logger.error(e.getMessage());
                 Thread.currentThread().interrupt();
