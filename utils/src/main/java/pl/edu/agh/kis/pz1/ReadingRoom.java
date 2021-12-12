@@ -3,29 +3,67 @@ package pl.edu.agh.kis.pz1;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+/**
+ * Class representing the reading room.
+ * The reading room encapsulates:
+ * <ul>
+ *     <li>number of readers in the reading room,</li>
+ *     <li>number of writer in the reading room,</li>
+ *     <li>books in the reading room</li>
+ * </ul>
+ */
 public class ReadingRoom {
+    /**
+     * number of readers.
+     */
     private int readers = 0;
+    /**
+     * number of writers.
+     */
     private int writers = 0;
+    /**
+     * number of books.
+     */
     int books = 0;
-    private static Logger logger = LogManager.getLogger(ReadingRoom.class);
+    private static final Logger logger = LogManager.getLogger(ReadingRoom.class);
 
-
+    /**
+     * Sets number of readers in the reading room.
+     * @param readers new number of readers.
+     */
     public void setReaders(int readers) {
         this.readers = readers;
     }
 
+    /**
+     * Sets number of writers in the reading room.
+     * @param writers new number of writers.
+     */
     public void setWriters(int writers) {
         this.writers = writers;
     }
 
+    /**
+     * Gets number of readers.
+     * @return number of readers.
+     */
     public int getReaders() {
         return readers;
     }
 
+    /**
+     * Gets number of writers
+     * @return number of writers.
+     */
     public int getWriters() {
         return writers;
     }
 
+    /**
+     * Makes that writers enters to the reading room or makes him wait for his turn.
+     * The writer can enter where there is any other writer or reader.
+     * It is synchronized method.
+     */
     public synchronized void startWriting(){
         while (writers != 0 || readers != 0) {
             try {
@@ -38,13 +76,22 @@ public class ReadingRoom {
         writers++;
     }
 
-
+    /**
+     * Makes that writer ends writing and goes out.
+     * It is synchronized method.
+     */
     public synchronized void endWriting() {
         books++;
         writers--;
         notifyAll();
     }
 
+    /**
+     * Makes that readers starts reading or makes him wait for his turn.
+     * The reader can enter where there is any writer or number of reader is less than 5.
+     * It is synchronized method.
+     * @param numberOfReadBooks number of read books by this reader.
+     */
     public synchronized void startReading(int numberOfReadBooks) {
         while (writers != 0 || readers >= 5 || numberOfReadBooks == books) {
             try {
@@ -57,6 +104,10 @@ public class ReadingRoom {
         readers++;
     }
 
+    /**
+     * Makes that readers end reading and goes out.
+     * It is synchronized method.
+     */
     public synchronized void endReading() {
         readers--;
         notifyAll();
