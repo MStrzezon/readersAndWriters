@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 public class ReadingRoom {
     private int readers = 0;
     private int writers = 0;
-    private String text = "";
     int books = 0;
     private static Logger logger = LogManager.getLogger(ReadingRoom.class);
 
