@@ -3,13 +3,16 @@ package pl.edu.agh.kis.pz1;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
+/**
+ * Class representing the reader.
+ */
 public class Reader extends Thread{
-    private ReadingRoom readingRoom;
-    private String name;
+    private final ReadingRoom readingRoom;
+    private final String name;
     String textRead;
     String newText;
     int numberOfReadBooks;
-    private static Logger logger = LogManager.getLogger(Reader.class);
+    private static final Logger logger = LogManager.getLogger(Reader.class);
 
     public Reader(ReadingRoom r, String n) {
         this.readingRoom = r;
