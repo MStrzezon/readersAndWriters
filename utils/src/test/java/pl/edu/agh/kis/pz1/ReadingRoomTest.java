@@ -64,6 +64,8 @@ public class ReadingRoomTest {
 
     @Test
     public void startEndReading() {
+        Writer writer = new Writer(readingRoom, "Kochanowski");
+        writer.start();
         Reader reader1 = new Reader(readingRoom, "Jan");
         reader1.start();
         Reader reader2 = new Reader(readingRoom, "Adam");
