@@ -2,8 +2,7 @@ package pl.edu.agh.kis.pz1;
 
 
 /**
- * Hello world!
- *
+ * Main class!
  */
 public class Main
 {
