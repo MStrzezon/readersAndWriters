@@ -4,7 +4,7 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 /**
- * Class representing the reader.
+ * Class extending Thread, representing the reader.
  * The reader object encapsulates name and wants to enter to the reading room
  * to read books.
  *
@@ -27,7 +27,7 @@ public class Reader extends Thread{
 
     /**
      * Creates the reader object.
-     * @param r reading room the reader will be enter.
+     * @param r reading room the reader will enter.
      * @param n name of the reader.
      */
     public Reader(ReadingRoom r, String n) {
