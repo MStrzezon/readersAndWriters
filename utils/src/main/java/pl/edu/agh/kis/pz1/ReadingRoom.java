@@ -54,7 +54,7 @@ public class ReadingRoom {
     }
 
     /**
-     * Gets number of readers.
+     * Gets number of readers in the reading room.
      * @return number of readers.
      */
     public int getReaders() {
@@ -62,10 +62,42 @@ public class ReadingRoom {
     }
 
     /**
-     * Gets number of writers
+     * Gets number of writers in the reading room.
      * @return number of writers.
      */
     public int getWriters() {
+        return writers;
+    }
+
+    /**
+     * Sets number of waiting readers.
+     * @param readers new number of waiting readers.
+     */
+    public void setWaitingReaders(int readers) {
+        this.readers = readers;
+    }
+
+    /**
+     * Sets number of waiting writers in the reading room.
+     * @param writers new number of waiting writers.
+     */
+    public void setWaitingWriters(int writers) {
+        this.writers = writers;
+    }
+
+    /**
+     * Gets number of waiting readers.
+     * @return number of waiting readers.
+     */
+    public int getWaitingReaders() {
+        return readers;
+    }
+
+    /**
+     * Gets number of waiting writers.
+     * @return number of waiting writers.
+     */
+    public int getWaitingWriters() {
         return writers;
     }
 
