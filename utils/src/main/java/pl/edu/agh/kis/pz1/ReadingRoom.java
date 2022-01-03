@@ -72,6 +72,7 @@ public class ReadingRoom {
     /**
      * Makes that writers enters to the reading room or makes him wait for his turn.
      * The writer can enter where there is any other writer or reader.
+     * Informs also about number of writers/readers in reading room and waiting writers/readers.
      * It is synchronized method.
      */
     public synchronized void startWriting(){
@@ -103,6 +104,7 @@ public class ReadingRoom {
     /**
      * Makes that readers starts reading or makes him wait for his turn.
      * The reader can enter where there is any writer or number of reader is less than 5.
+     * Informs also about number of writers/readers in reading room and waiting writers/readers.
      * It is synchronized method.
      * @param numberOfReadBooks number of read books by this reader.
      */
