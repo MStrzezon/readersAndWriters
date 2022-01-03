@@ -1,6 +1,5 @@
 package pl.edu.agh.kis.pz1;
 
-
 /**
  * Main class!
  */
