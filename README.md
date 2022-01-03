@@ -30,11 +30,11 @@ Do rozwiązania problemu zostały wykorzystane metody synchroniczne w klasie Rea
   + Jeśli w czytelni jest pisarz lub więcej niż 5 czytelników, to czytelnik czeka (wait()),
   + Gdy miejsce się zwalnia, to czytelnik wchodzi.
   + Zmniejsza się liczba oczekujących czytelników, a wzrasta liczba czytelników w czytelni.
--endWriting:
+- endWriting:
   + Zostaje zwiększona liczba książek o jedną,
   + Maleje liczba pisarzy,
   + Powiadomione są inne wątki o tym, że pisarz skończył pisać.
--endReading:
+- endReading:
   + Maleje liczba czytelników,
   + Powiadomione są inne wątki, że czytelnik zaczął czytać.
 
