@@ -1,8 +1,12 @@
 package pl.edu.agh.kis.pz1;
 
+import org.awaitility.Duration;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.concurrent.TimeUnit;
+
+import static org.awaitility.Awaitility.await;
 import static org.junit.Assert.*;
 
 /**
@@ -58,7 +62,7 @@ public class ReadingRoomTest {
         writer6.start();
         for (int i = 0; i<1000; i++) {
             assertTrue((readingRoom.getWriters() <= 1) && readingRoom.getWriters() >= 0);
-            Thread.sleep(4);
+            TimeUnit.MILLISECONDS.sleep(1);
         }
     }
 
@@ -80,7 +84,7 @@ public class ReadingRoomTest {
         reader6.start();
         for (int i = 0; i<1000; i++) {
             assertTrue((readingRoom.getReaders() <= 5) && readingRoom.getReaders() >= 0);
-            Thread.sleep(4);
+            TimeUnit.MILLISECONDS.sleep(1);
         }
     }
 
