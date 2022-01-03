@@ -9,6 +9,8 @@ import org.apache.logging.log4j.LogManager;
  * <ul>
  *     <li>number of readers in the reading room,</li>
  *     <li>number of writer in the reading room,</li>
+ *     <li>number of waiting readers in the reading room,</li>
+ *     <li>number of waiting writers in the reading room,</li>
  *     <li>books in the reading room</li>
  * </ul>
  */
@@ -21,6 +23,14 @@ public class ReadingRoom {
      * number of writers.
      */
     private int writers = 0;
+    /**
+     * number of waiting readers.
+     */
+    private int waitingReaders = 0;
+    /**
+     * number of waiting writers.
+     */
+    private int waitingWriters = 0;
     /**
      * number of books.
      */
@@ -65,6 +75,9 @@ public class ReadingRoom {
      * It is synchronized method.
      */
     public synchronized void startWriting(){
+        logger.info("Writers in reading room: {}\nReaders in reading room: {}",writers, readers);
+        waitingWriters++;
+        logger.info("Waiting writers: {}\nWaiting readers: {}", waitingWriters, waitingReaders);
         while (writers != 0 || readers != 0) {
             try {
                 wait();
@@ -73,6 +86,7 @@ public class ReadingRoom {
                 Thread.currentThread().interrupt();
             }
         }
+        waitingWriters--;
         writers++;
     }
 
@@ -93,6 +107,9 @@ public class ReadingRoom {
      * @param numberOfReadBooks number of read books by this reader.
      */
     public synchronized void startReading(int numberOfReadBooks) {
+        logger.info("Writers in reading room: {}\nReaders in reading room: {}",writers, readers);
+        waitingReaders++;
+        logger.info("Waiting writers: {}\nWaiting readers: {}", waitingWriters, waitingReaders);
         while (writers != 0 || readers >= 5 || numberOfReadBooks == books) {
             try {
                 wait();
@@ -101,6 +118,7 @@ public class ReadingRoom {
                 Thread.currentThread().interrupt();
             }
         }
+        waitingReaders--;
         readers++;
     }
 
