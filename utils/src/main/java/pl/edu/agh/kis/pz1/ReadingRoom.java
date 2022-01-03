@@ -74,7 +74,7 @@ public class ReadingRoom {
      * @param readers new number of waiting readers.
      */
     public void setWaitingReaders(int readers) {
-        this.readers = readers;
+        this.waitingReaders = readers;
     }
 
     /**
@@ -82,7 +82,7 @@ public class ReadingRoom {
      * @param writers new number of waiting writers.
      */
     public void setWaitingWriters(int writers) {
-        this.writers = writers;
+        this.waitingWriters = writers;
     }
 
     /**
@@ -90,7 +90,7 @@ public class ReadingRoom {
      * @return number of waiting readers.
      */
     public int getWaitingReaders() {
-        return readers;
+        return waitingReaders;
     }
 
     /**
@@ -98,7 +98,7 @@ public class ReadingRoom {
      * @return number of waiting writers.
      */
     public int getWaitingWriters() {
-        return writers;
+        return waitingWriters;
     }
 
     /**
