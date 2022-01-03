@@ -8,6 +8,9 @@ import java.io.PipedInputStream;
 
 import static org.junit.Assert.*;
 
+/**
+ * Tests reader class.
+ */
 public class ReaderTest {
     private ReadingRoom readingRoom;
 

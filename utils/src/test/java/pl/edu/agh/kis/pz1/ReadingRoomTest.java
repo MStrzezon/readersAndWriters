@@ -5,6 +5,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Tests reading room class.
+ */
 public class ReadingRoomTest {
     ReadingRoom readingRoom;
 

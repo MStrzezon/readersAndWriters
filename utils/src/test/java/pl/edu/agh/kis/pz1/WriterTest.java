@@ -6,6 +6,9 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * Tests writer class.
+ */
 public class WriterTest {
     private ReadingRoom readingRoom;
 
