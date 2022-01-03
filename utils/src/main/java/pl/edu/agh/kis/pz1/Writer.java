@@ -47,12 +47,12 @@ public class Writer extends Thread{
             try {
                 logger.info( "Writer {} wants enter.", name);
                 readingRoom.startWriting();
-                sleep((700));
+                sleep((2000));
                 logger.info("{} writes.", name);
-                sleep((700));
+                sleep((2000));
                 logger.info("{} is ending writing.", name);
                 readingRoom.endWriting();
-                sleep(700);
+                sleep(2000);
             } catch (InterruptedException e) {
                 logger.error(e.getMessage());
                 Thread.currentThread().interrupt();
