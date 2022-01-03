@@ -47,7 +47,6 @@ public class Writer extends Thread{
             try {
                 logger.info( "Writer {} wants enter.", name);
                 readingRoom.startWriting();
-                sleep((2000));
                 logger.info("{} writes.", name);
                 sleep((2000));
                 logger.info("{} is ending writing.", name);

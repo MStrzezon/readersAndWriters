@@ -51,7 +51,6 @@ public class Reader extends Thread{
             try {
                 logger.info("Reader {} wants enter.", name);
                 readingRoom.startReading(numberOfReadBooks);
-                sleep((1000));
                 logger.info("{} are reading book nr. {}", name, numberOfReadBooks);
                 numberOfReadBooks++;
                 sleep((1000));
