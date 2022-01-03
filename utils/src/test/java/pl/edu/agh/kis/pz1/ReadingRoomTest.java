@@ -40,7 +40,7 @@ public class ReadingRoomTest {
     }
 
     @Test
-    public void startEndWriting() {
+    public void startEndWriting() throws InterruptedException {
         Writer writer1 = new Writer(readingRoom, "Jan");
         writer1.start();
         Writer writer2 = new Writer(readingRoom, "Adam");
@@ -53,17 +53,14 @@ public class ReadingRoomTest {
         writer5.start();
         Writer writer6 = new Writer(readingRoom, "Ignacy");
         writer6.start();
-        double g;
         for (int i = 0; i<1000; i++) {
-            for (int j = 0; j < 1000000; j++) {
-                g = Math.exp(25);
-            }
             assertTrue((readingRoom.getWriters() <= 1) && readingRoom.getWriters() >= 0);
+            Thread.sleep(4);
         }
     }
 
     @Test
-    public void startEndReading() {
+    public void startEndReading() throws InterruptedException {
         Writer writer = new Writer(readingRoom, "Kochanowski");
         writer.start();
         Reader reader1 = new Reader(readingRoom, "Jan");
@@ -78,12 +75,9 @@ public class ReadingRoomTest {
         reader5.start();
         Reader reader6 = new Reader(readingRoom, "Ignacy");
         reader6.start();
-        double g;
         for (int i = 0; i<1000; i++) {
-            for (int j = 0; j < 1000000; j++) {
-                g = Math.exp(25);
-            }
             assertTrue((readingRoom.getReaders() <= 5) && readingRoom.getReaders() >= 0);
+            Thread.sleep(4);
         }
     }
 
