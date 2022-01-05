@@ -4,8 +4,8 @@ import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.LogManager;
 
 /**
- * Class extending Thread, representing the reader.
- * The writer object encapsulates name and wants to enter to the reading book
+ * Class extending Thread, representing the writer.
+ * The writer object encapsulates name and wants to enter to the reading room
  * to write books.
  *
  * @author Michał Strzeżoń
